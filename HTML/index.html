@@ -14,20 +14,127 @@
         <ul>
             <li><a href="https://developer.mozilla.org/">MDN</a></li>
             <li><a href="https://www.w3schools.com/html/default.asp">W3Schools</a></li>
-            <li><a href="https://www.google.es">Google</a></li>
-            <li><a href="https://www.google.es">Google</a></li>
         </ul>
     </nav>
 
     <main>
-        <!-- p*5>lorem7 -->
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-        <p>Accusantium praesentium, omnis deleniti fugit doloremque ipsum.</p>
-        <p>Facere cumque velit perspiciatis, ea dicta eum.</p>
-        <p>Consequuntur, itaque consectetur. Ad obcaecati eveniet similique?</p>
-        <p>Atque ullam veritatis laudantium illum repellendus tempore.</p>
+        <article id="html">
+            <h2>HTML</h2>
+
+            <!-- section#parrafos>h2>{Párrafos} -->
+            <section id="parrafos">
+                <h2>Párrafos</h2>
+
+                <!-- p*5>lorem7 -->
+                <p>Accusantium praesentium, omnis deleniti fugit doloremque ipsum.</p>
+                <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing.</p>
+                <p><em>Facere</em> <mark>velit</mark> perspiciatis, ea dicta eum.</p>
+                <p>
+                    <span class="marcado">Consequuntur</span>, itaque consectetur.<br>
+                    Ad obcaecati<br>
+                    eveniet similique?
+                </p>
+                
+                <pre>Atque 
+                    
+                    ullam           veritatis 
+                    
+                    laudantium illum repellendus tempore.</pre>
+                <pre>
++-----+
+|     |
+|     |
++-----+
+
+public class Hola {
+    public static void main(String[] args) {
+        System.out.println("Hola");
+    }
+}
+                </pre>
+            </section>
+
+            <section id="listas">
+                <h2>Listas</h2>
+
+                <ul>
+                    <li>Uno</li>
+                    <li>Dos</li>
+                    <li>Tres</li>
+                </ul>
+
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS
+                        <ol>
+                            <li>Cascade</li>
+                            <li>Style</li>
+                            <li>Sheets</li>
+                        </ol>
+                    </li>
+                    <li>JavaScript</li>
+                </ol>
+
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>Hyper Text Markup Language</dd>
+                    <dt>CSS</dt>
+                    <dd>Cascade Style Sheets</dd>
+                </dl>
+            </section>
+
+            <section id="tablas">
+                <table border="1">
+                    <caption>Ejemplo de tabla</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Portátil</td>
+                            <td>1.234,00€</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Ratón</td>
+                            <td>34,00€</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <th>Total</th>
+                            <td>1.268,00€</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+        </article>
+
+
     </main>
 
+    <aside>
+        <!-- nav>ul>li*3>a>{Anuncio $} -->
+        <nav>
+            <ul>
+                <li><a href="#">Anuncio 1</a></li>
+                <li><a href="#">Anuncio 2</a></li>
+                <li><a href="#">Anuncio 3</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <footer>
+        <p>&copy;2024 Javier Lete</p>
+    </footer>
 </body>
 
 </html>
