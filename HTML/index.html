@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de HTML</title>
+
+    <script defer src="js/input-month-polyfill.min.js"></script>
 </head>
 
 <body>
@@ -129,13 +131,95 @@ public class Hola {
                 <audio controls src="audios/rock.mp3"></audio>
                 <video controls src="videos/Big_Buck_Bunny_360_10s_1MB.mp4"></video>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580206!2d-2.916166924294102!3d43.25640397112366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1716196908383!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/32NQ56VZDTXSH3SMv4XSGN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/SVGjOUnQZ58?si=7KC2RxJzljGaUD9I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580206!2d-2.916166924294102!3d43.25640397112366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1716196908383!5m2!1ses!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/album/32NQ56VZDTXSH3SMv4XSGN?utm_source=generator" width="100%"
+                    height="352" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SVGjOUnQZ58?si=7KC2RxJzljGaUD9I"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </section>
+
+            <section id="formularios">
+                <form>
+                    <fieldset>
+                        <legend>Datos personales</legend>
+
+                        <div>
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre">
+                        </div>
+
+                        <div>
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos">
+                        </div>
+
+                        <div>
+                            <button>Guardar</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <form action="https://www.google.com/search">
+                    <fieldset>
+                        <legend>Buscar por Google</legend>
+
+                        <input type="search" name="q" placeholder="Texto a buscar">
+                        <button>Buscar</button>
+                    </fieldset>
+                </form>
+
+                <form>
+                    <fieldset>
+                        <legend>Campos variados</legend>
+
+                        <input type="password" placeholder="Contraseña">
+                        <input type="email" placeholder="Email">
+                        <input type="tel" placeholder="Teléfono">
+                        <input type="url" placeholder="URL">
+                        <input type="number" placeholder="Número entero">
+                        <input type="number" step=".01" min="0" max="100" placeholder="Número decimal">
+                        <input type="date">
+                        <input type="time">
+                        <input type="datetime-local">
+                        <input type="month">
+                        <input type="week">
+                        <input type="checkbox">
+                        <input type="radio" name="opcion">
+                        <input type="radio" name="opcion">
+                        <select>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                            <option value="3">Tres</option>
+                        </select>
+                        <select multiple>
+                            <option value="1">Uno</option>
+                            <option value="2">Dos</option>
+                            <option value="3">Tres</option>
+                        </select>
+                        <textarea rows="4"></textarea>
+                        <input type="color">
+                        <input type="range" min="0" max="10" step="2">
+                        <input type="file" placeholder="Fichero">
+
+                        <input type="submit" value="Enviar">
+                        <input type="reset" value="Vaciar">
+
+                        <input type="hidden" name="escondido" value="valor">
+
+                        <button type="button">No envía</button>
+                        <button type="submit">Sí envía</button>
+                    </fieldset>
+                </form>
             </section>
         </article>
-
-
     </main>
 
     <aside>
