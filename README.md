@@ -12,7 +12,8 @@ Ejemplo: https://javierlete.github.io/web-2693/HTML/
 
 # CSS
 
-CSS Dinner: https://flukeout.github.io/
+- Estándares CSS: https://www.w3.org/Style/CSS/current-work
+- CSS Dinner: https://flukeout.github.io/
 
 # Utilidades
 
