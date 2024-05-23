@@ -1,3 +1,8 @@
+/* Reseteos */
+* {
+    box-sizing: border-box;
+}
+
 /* Variables de CSS */
 :root {
     --tipo-letra: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -8,12 +13,7 @@
     --espacio-pequeno: calc(var(--espacio) / 2);
     --enlace: #00006f;
     --borde: 1px solid darkgray;
-    --sombra: var(--espacio-pequeno) var(--espacio-pequeno) .5rem gray;
-}
-
-/* Reseteos */
-* {
-    box-sizing: border-box;
+    --sombra: var(--espacio-pequeno) var(--espacio-pequeno) .5rem rgba(0, 0, 0, 0.5);
 }
 
 /* Características generales */
@@ -83,7 +83,13 @@ dd {
 table {
     width: 100%;
 
+    box-shadow: var(--sombra);
+
     border-collapse: collapse;
+
+    & caption {
+        box-shadow: var(--sombra);
+    }
 
     & caption, & thead, & tfoot {
         background-color: var(--fondo-suave);
@@ -95,6 +101,65 @@ table {
         padding: var(--espacio-pequeno);
         text-align: left;
     }
+}
+
+fieldset {
+    border: 1px solid lightgray;
+    border-radius: var(--espacio-pequeno);
+    
+    & legend {
+        font-weight: bold;
+    }
+    
+    & label, & input, & select, & textarea, & button, & input[type=file]::file-selector-button {
+        margin: var(--espacio-pequeno);
+        padding: var(--espacio-pequeno);
+        border-radius: var(--espacio-pequeno);
+        
+        width: 100%;
+    }
+
+    & input, & select, & textarea, & button, & input[type=file]::file-selector-button {
+        border: 1px solid lightgray;
+    }
+
+    & input[type=checkbox], & input[type=radio], & input[type=file]::file-selector-button {
+        width: auto;
+    }
+
+    & button, & input[type=submit], & input[type=reset], & input[type=file]::file-selector-button {
+        background-color: var(--enlace);
+        color: var(--fondo);
+    }
+}
+
+
+/* Elementos multimedia adaptativos */
+
+.aspecto {
+    position: relative;
+    height: 0;
+    margin-bottom: calc(var(--espacio) * 2);
+}
+
+.aspecto iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.a1x1 {
+    padding-bottom: 100%;
+}
+
+.a4x3 {
+    padding-bottom: calc((3/4) * 100%);
+}
+
+.a16x9 {
+    padding-bottom: calc((9/16) * 100%);
 }
 
 /* Estructura */
@@ -112,7 +177,7 @@ table {
     
 }
 
-h1 {
+h1, footer {
     background-color: var(--tinta);
     color: var(--fondo);
 
@@ -141,13 +206,12 @@ body>nav {
         width: 100%;
         color: var(--fondo);
         padding: var(--espacio);
+        border: var(--espacio-pequeno) solid var(--enlace);
 
         &:hover {
             text-decoration: none;
             color: var(--enlace);
             background-color: var(--fondo);
-
-            border: var(--espacio-pequeno) solid var(--enlace);
         }
     }
 }
@@ -175,5 +239,51 @@ main {
 
     & figure, & img, & audio, & video, & iframe {
         width: 100%;
+
+        margin: var(--espacio) 0;
+        padding: var(--espacio);
+        border-radius: var(--espacio-pequeno)
     }
+    
+    & figure, & video, & iframe {
+        box-shadow: var(--sombra);
+        border: 1px solid lightgray;
+    }
+}
+
+aside {
+    background-color: var(--fondo-suave);
+
+    padding: var(--espacio-pequeno);
+
+    & ul {
+        padding-left: 0;
+    }
+
+    & li {
+        list-style: none;
+    }
+
+    & a {
+        display: inline-block;
+        padding: var(--espacio-pequeno);
+    }
+
+    text-align: center;
+}
+
+#arriba {
+    position: fixed;
+    z-index: 1;
+    
+    display: inline-block;
+    bottom: 1rem;
+    right: 1rem;
+
+    color: var(--fondo);
+    background-color: var(--enlace);
+    border: 1px solid lightgray;
+    border-radius: var(--espacio);
+    padding: var(--espacio-pequeno);
+    box-shadow: var(--sombra);
 }
