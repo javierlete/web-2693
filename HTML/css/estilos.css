@@ -35,14 +35,14 @@ h2 {
 }
 
 h3 {
-    font-variant: small-caps; 
+    font-variant: small-caps;
     border-bottom: 1px solid black;
 }
 
 a {
     text-decoration: none;
     color: var(--enlace);
-    
+
     &:hover {
         text-decoration: underline;
     }
@@ -91,12 +91,16 @@ table {
         box-shadow: var(--sombra);
     }
 
-    & caption, & thead, & tfoot {
+    & caption,
+    & thead,
+    & tfoot {
         background-color: var(--fondo-suave);
         font-weight: bold;
     }
 
-    & caption, & th, & td {
+    & caption,
+    & th,
+    & td {
         border: 1px solid darkgray;
         padding: var(--espacio-pequeno);
         text-align: left;
@@ -106,28 +110,42 @@ table {
 fieldset {
     border: 1px solid lightgray;
     border-radius: var(--espacio-pequeno);
-    
+
     & legend {
         font-weight: bold;
     }
-    
-    & label, & input, & select, & textarea, & button, & input[type=file]::file-selector-button {
-        margin: var(--espacio-pequeno);
+
+    & label,
+    & input,
+    & select,
+    & textarea,
+    & button,
+    & input[type=file]::file-selector-button {
+        margin: var(--espacio-pequeno) 0;
         padding: var(--espacio-pequeno);
         border-radius: var(--espacio-pequeno);
-        
+
         width: 100%;
     }
 
-    & input, & select, & textarea, & button, & input[type=file]::file-selector-button {
+    & input,
+    & select,
+    & textarea,
+    & button,
+    & input[type=file]::file-selector-button {
         border: 1px solid lightgray;
     }
 
-    & input[type=checkbox], & input[type=radio], & input[type=file]::file-selector-button {
+    & input[type=checkbox],
+    & input[type=radio],
+    & input[type=file]::file-selector-button {
         width: auto;
     }
 
-    & button, & input[type=submit], & input[type=reset], & input[type=file]::file-selector-button {
+    & button,
+    & input[type=submit],
+    & input[type=reset],
+    & input[type=file]::file-selector-button {
         background-color: var(--enlace);
         color: var(--fondo);
     }
@@ -165,7 +183,12 @@ fieldset {
 /* Estructura */
 
 #html {
-    & h2, & h3, & h4, & h5, & h6 {
+
+    & h2,
+    & h3,
+    & h4,
+    & h5,
+    & h6 {
         &::before {
             content: '<';
         }
@@ -174,10 +197,11 @@ fieldset {
             content: '>';
         }
     }
-    
+
 }
 
-h1, footer {
+h1,
+footer {
     background-color: var(--tinta);
     color: var(--fondo);
 
@@ -190,16 +214,16 @@ h1, footer {
 }
 
 body>nav {
-    background-color:var(--enlace);
-    
+    background-color: var(--enlace);
+
     & ul {
         list-style: none;
-    
+
         text-align: center;
         padding: 0;
         margin: 0;
     }
-    
+
     & a {
         display: inline-block;
 
@@ -227,7 +251,10 @@ main {
 }
 
 #tablas table {
-    & :first-child:not(caption), & :last-child, & tfoot :nth-child(2) {
+
+    & :first-child:not(caption),
+    & :last-child,
+    & tfoot :nth-child(2) {
         text-align: right;
     }
 }
@@ -237,15 +264,21 @@ main {
         margin: 0;
     }
 
-    & figure, & img, & audio, & video, & iframe {
+    & figure,
+    & img,
+    & audio,
+    & video,
+    & iframe {
         width: 100%;
 
         margin: var(--espacio) 0;
         padding: var(--espacio);
         border-radius: var(--espacio-pequeno)
     }
-    
-    & figure, & video, & iframe {
+
+    & figure,
+    & video,
+    & iframe {
         box-shadow: var(--sombra);
         border: 1px solid lightgray;
     }
@@ -275,7 +308,7 @@ aside {
 #arriba {
     position: fixed;
     z-index: 1;
-    
+
     display: inline-block;
     bottom: 1rem;
     right: 1rem;
@@ -286,4 +319,73 @@ aside {
     border-radius: var(--espacio);
     padding: var(--espacio-pequeno);
     box-shadow: var(--sombra);
+}
+
+@media (min-width: 768px) {
+    body>nav {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    body>nav ul {
+        display: flex;
+    }
+
+    #parrafos,
+    #listas,
+    #formularios,
+    #formularios>:last-child>fieldset,
+    aside ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: var(--espacio);
+    }
+
+    #parrafos>* {
+        width: calc(50% - var(--espacio));
+    }
+
+    #listas>* {
+        width: calc(100%/3 - var(--espacio));
+    }
+
+    #formularios>:first-child,
+    #formularios>:nth-child(2) {
+        width: calc(50% - var(--espacio));
+    }
+
+    #formularios>:last-child {
+        align-items: flex-start;
+    }
+
+    #formularios>:last-child>fieldset {
+        &>* {
+            width: calc(100%/3 - var(--espacio) * 2);
+        }
+
+        &>[type=radio],
+        &>[type=checkbox] {
+            width: auto;
+        }
+
+        &>[type=submit],
+        &>[type=reset],
+        &>button {
+            width: calc(100%/2 - var(--espacio));
+        }
+    }
+
+    h3 {
+        width: 100% !important;
+    }
+
+    aside ul {
+        justify-content: space-around;
+    }
+
+    #arriba {
+        display: none;
+    }
 }
