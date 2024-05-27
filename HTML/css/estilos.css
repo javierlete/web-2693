@@ -351,8 +351,8 @@ aside {
         width: calc(100%/3 - var(--espacio));
     }
 
-    #formularios>:first-child,
-    #formularios>:nth-child(2) {
+    #formularios>form:first-of-type,
+    #formularios>form:nth-of-type(2) {
         width: calc(50% - var(--espacio));
     }
 
@@ -395,5 +395,40 @@ aside {
 
     #arriba {
         display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    #html {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--espacio);
+
+        & h2, & #parrafos, & #multimedia, & #formularios {
+            grid-column: span 2;
+        }
+    }
+
+    #multimedia {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        & h3, & audio {
+            grid-column: span 2;
+        }
+
+        & .aspecto:last-of-type {
+            grid-row-start: 2;
+            grid-column-start: 2
+        }
+
+        & .aspecto:nth-of-type(2) {
+            grid-column-start: 2;
+            grid-row-start: 4;
+        }
+
+        & .aspecto:first-of-type {
+            grid-column: span 2;
+        }
     }
 }
