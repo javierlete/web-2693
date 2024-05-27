@@ -356,6 +356,14 @@ aside {
         width: calc(50% - var(--espacio));
     }
 
+    #formularios>:first-child div {
+        display: flex;
+
+        & label {
+            width: 7rem;
+        }
+    }
+
     #formularios>:last-child {
         align-items: flex-start;
     }
