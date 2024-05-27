@@ -15,8 +15,10 @@ Ejemplo: https://javierlete.github.io/web-2693/HTML/
 - Estándares CSS: https://www.w3.org/Style/CSS/current-work
 - CSS Dinner: https://flukeout.github.io/
 - Flexbox Froggy: https://flexboxfroggy.com/#es
+- GridGarden: https://cssgridgarden.com/#es
 - Position: https://developer.mozilla.org/es/docs/Web/CSS/position
-
+- Chuleta de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+- Chuleta de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
 
 # Accesibilidad
 
