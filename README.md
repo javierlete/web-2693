@@ -25,6 +25,7 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 # Utilidades
 
 - CanIUse: https://caniuse.com/
+- NVDA: https://nvda.es/descargas/descarga-de-nvda/inde
 
 # WEB
 
