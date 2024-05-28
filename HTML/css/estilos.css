@@ -404,7 +404,10 @@ aside {
         grid-template-columns: 1fr 1fr;
         gap: var(--espacio);
 
-        & h2, & #parrafos, & #multimedia, & #formularios {
+        & h2,
+        & #parrafos,
+        & #multimedia,
+        & #formularios {
             grid-column: span 2;
         }
     }
@@ -413,7 +416,8 @@ aside {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
 
-        & h3, & audio {
+        & h3,
+        & audio {
             grid-column: span 2;
         }
 
@@ -429,6 +433,127 @@ aside {
 
         & .aspecto:first-of-type {
             grid-column: span 2;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    #parrafos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        grid-template-areas: 
+            "parrafos-titulo    parrafos-titulo"
+            "primer-parrafo     primer-pre"
+            "segundo-parrafo    primer-pre"
+            "tercer-parrafo     segundo-pre"
+            "cuarto-parrafo     segundo-pre";
+
+        &>* {
+            width: 100%;
+        }
+
+        & h3 {
+            grid-area: parrafos-titulo;
+        }
+
+        & p:nth-of-type(1) {
+            grid-area: primer-parrafo;
+        }
+
+        & p:nth-of-type(2) {
+            grid-area: segundo-parrafo;
+        }
+
+        & p:nth-of-type(3) {
+            grid-area: tercer-parrafo;
+        }
+
+        & p:nth-of-type(4) {
+            grid-area: cuarto-parrafo;
+        }
+
+        & pre:nth-of-type(1) {
+            grid-area: primer-pre;
+        }
+
+        & pre:nth-of-type(2) {
+            grid-area: segundo-pre;
+        }
+    }
+
+    #multimedia {
+        grid-template-columns: 1fr 1fr 1.4fr;
+
+        grid-template-areas:
+            "multimedia-titulo multimedia-titulo multimedia-titulo"
+            "sonido sonido sonido"
+            "imagen youtube mapa"
+            "video spotify mapa";
+
+        & h3 {
+            grid-area: multimedia-titulo;
+        }
+
+        & figure {
+            grid-area: imagen;
+        }
+
+        & audio {
+            grid-area: sonido;
+        }
+
+        & video {
+            grid-area: video;
+        }
+
+        & .a16x9 {
+            grid-area: spotify;
+        }
+
+        & .a1x1 {
+            grid-area: mapa;
+        }
+
+        & .a4x3 {
+            grid-area: youtube;
+            grid-row-start: unset !important;
+            grid-column-start: unset !important;
+        }
+    }
+
+    body {
+        display: grid;
+        grid-template-columns: 1fr 9rem;
+
+        grid-template-areas: 
+            "titulo     titulo"
+            "menu       menu"
+            "principal  anuncios"
+            "pie        pie";
+
+        &>h1 {
+            grid-area: titulo;
+        }
+
+        &>nav {
+            grid-area: menu;
+        }
+
+        &>main {
+            grid-area: principal;
+        }
+
+        &>aside {
+            grid-area: anuncios;
+
+            &>nav>ul {
+                flex-direction: column;
+            }
+        }
+
+        &>footer {
+            grid-area: pie;
         }
     }
 }
