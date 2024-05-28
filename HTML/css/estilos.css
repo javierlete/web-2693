@@ -1,3 +1,6 @@
+/* Tipos de letra */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Red+Rose:wght@300..700&display=swap');
+
 /* Reseteos */
 * {
     box-sizing: border-box;
@@ -5,7 +8,8 @@
 
 /* Variables de CSS */
 :root {
-    --tipo-letra: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --tipo-letra: "Inter", sans-serif;
+    --tipo-titulo: "Red Rose", serif;
     --fondo: white;
     --fondo-suave: lightgray;
     --tinta: black;
@@ -25,6 +29,10 @@ body {
 
     background-color: var(--fondo);
     color: var(--tinta);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--tipo-titulo);
 }
 
 h2 {
