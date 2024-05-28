@@ -19,6 +19,8 @@ Ejemplo: https://javierlete.github.io/web-2693/HTML/
 - Position: https://developer.mozilla.org/es/docs/Web/CSS/position
 - Chuleta de Flex: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 - Chuleta de Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
+- FontAwesome: https://fontawesome.com/
+- Fonts de Google: https://fonts.google.com/
 
 # Accesibilidad
 
