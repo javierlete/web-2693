@@ -6,24 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejemplo de HTML</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
     <script defer src="js/input-month-polyfill.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --bs-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Ejemplo de HTML 😀😊</h1>
+    <h1 class="display-3 text-bg-dark p-2 text-center mb-0">Ejemplo de HTML 😀😊</h1>
 
-    <nav>
-        <ul>
-            <li><a href="#parrafos">Párrafos</a></li>
-            <li><a href="#listas">Listas</a></li>
-            <li><a href="#tablas">Tablas</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ejemplo Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item"><a class="nav-link" href="#parrafos">Párrafos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#listas">Listas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tablas">Tablas</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <main>
+    <main class="container">
         <article id="html">
-            <h2>HTML</h2>
+            <h2 class="text-center m-2 p-1 bg-secondary-subtle">HTML</h2>
 
             <!-- section#parrafos>h2>{Párrafos} -->
             <section id="parrafos">
@@ -34,17 +58,17 @@
                 <p><strong>Lorem ipsum</strong> dolor sit amet consectetur adipisicing.</p>
                 <p><em>Facere</em> <mark>velit</mark> perspiciatis, ea dicta eum.</p>
                 <p>
-                    <span class="marcado">Consequuntur</span>, itaque consectetur.<br>
+                    <span class="text-bg-dark p-1 rounded">Consequuntur</span>, itaque consectetur.<br>
                     Ad obcaecati<br>
                     eveniet similique?
                 </p>
 
-                <pre>Atque 
+                <pre class="shadow bg-secondary-subtle p-2 rounded-top border-dark-subtle border">Atque 
                     
                     ullam           veritatis 
                     
                     laudantium illum repellendus tempore.</pre>
-                <pre>
+                <pre class="shadow bg-secondary-subtle p-2 rounded-top border-dark-subtle border">
 +-----+
 |     |
 |     |
@@ -90,34 +114,34 @@ public class Hola {
             <section id="tablas">
                 <h3>Tablas</h3>
 
-                <table>
+                <table class="shadow table table-bordered table-striped table-hover">
                     <caption>Ejemplo de tabla</caption>
 
-                    <thead>
+                    <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
+                            <th class="text-end">Id</th>
                             <th>Nombre</th>
-                            <th>Precio</th>
+                            <th class="text-end">Precio</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr>
-                            <th>1</th>
+                            <th class="text-end">1</th>
                             <td>Portátil</td>
-                            <td>1.234,00€</td>
+                            <td class="text-end">1.234,00€</td>
                         </tr>
                         <tr>
-                            <th>2</th>
+                            <th class="text-end">2</th>
                             <td>Ratón</td>
-                            <td>34,00€</td>
+                            <td class="text-end">34,00€</td>
                         </tr>
                     </tbody>
-                    <tfoot>
+                    <tfoot class="table-dark">
                         <tr>
                             <td></td>
-                            <th>Total</th>
-                            <td>1.268,00€</td>
+                            <th class="text-end">Total</th>
+                            <td class="text-end">1.268,00€</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -126,30 +150,30 @@ public class Hola {
             <section id="multimedia">
                 <h3>Multimedia</h3>
 
-                <figure>
-                    <img src="imgs/coffee.jpg" alt="Taza de café con un ordenador">
-                    <figcaption>Taza de café con un ordenador</figcaption>
+                <figure class="figure">
+                    <img class="shadow figure-img img-fluid rounded" src="imgs/coffee.jpg"
+                        alt="Taza de café con un ordenador">
+                    <figcaption class="figure-caption text-end">Taza de café con un ordenador</figcaption>
                 </figure>
 
-                <audio controls src="audios/rock.mp3"></audio>
-                <video controls src="videos/Big_Buck_Bunny_360_10s_1MB.mp4"></video>
+                <audio class="shadow rounded-pill w-100" controls src="audios/rock.mp3"></audio>
+                <video class="shadow w-100 rounded" controls src="videos/Big_Buck_Bunny_360_10s_1MB.mp4"></video>
 
-                <div class="aspecto a1x1">
-                    <iframe
+                <div class="ratio ratio-1x1 mb-3">
+                    <iframe class="shadow rounded border"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.762268580206!2d-2.916166924294102!3d43.25640397112366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1716196908383!5m2!1ses!2ses"
-                        allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="aspecto a16x9">
-                    <iframe
-                        src="https://open.spotify.com/embed/album/32NQ56VZDTXSH3SMv4XSGN?utm_source=generator" width="100%"
-                        allowfullscreen=""
+                <div class="ratio ratio-16x9 mb-3">
+                    <iframe src="https://open.spotify.com/embed/album/32NQ56VZDTXSH3SMv4XSGN?utm_source=generator"
+                        width="100%" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
-                <div class="aspecto a4x3">
-                    <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58?si=7KC2RxJzljGaUD9I"
-                        title="YouTube video player" frameborder="0"
+                <div class="ratio ratio-4x3 mb-3">
+                    <iframe class="shadow rounded border"
+                        src="https://www.youtube.com/embed/SVGjOUnQZ58?si=7KC2RxJzljGaUD9I" title="YouTube video player"
+                        frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
@@ -161,18 +185,24 @@ public class Hola {
                     <fieldset>
                         <legend>Datos personales</legend>
 
-                        <div>
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 form-label" for="nombre">Nombre</label>
+                            <div class="col-sm">
+                                <input class="form-control" type="text" id="nombre" name="nombre">
+                            </div>
                         </div>
 
-                        <div>
-                            <label for="apellidos">Apellidos</label>
-                            <input type="text" id="apellidos" name="apellidos">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 form-label" for="apellidos">Apellidos</label>
+                            <div class="col-sm">
+                                <input class="form-control" type="text" id="apellidos" name="apellidos">
+                            </div>
                         </div>
 
-                        <div>
-                            <button>Guardar</button>
+                        <div class="row mb-3">
+                            <div class="offset-sm-2 col-sm">
+                                <button class="btn btn-primary">Guardar</button>
+                            </div>
                         </div>
                     </fieldset>
                 </form>
@@ -190,42 +220,59 @@ public class Hola {
                     <fieldset>
                         <legend>Campos variados</legend>
 
-                        <input type="password" placeholder="Contraseña">
-                        <input type="email" placeholder="Email">
-                        <input type="tel" placeholder="Teléfono">
-                        <input type="url" placeholder="URL">
-                        <input type="number" placeholder="Número entero">
-                        <input type="number" step=".01" min="0" max="100" placeholder="Número decimal">
-                        <input type="date">
-                        <input type="time">
-                        <input type="datetime-local">
-                        <input type="month">
-                        <input type="week">
-                        <input type="checkbox">
-                        <input type="radio" name="opcion">
-                        <input type="radio" name="opcion">
-                        <select>
+                        <input class="form-control" type="password" placeholder="Contraseña">
+                        <input class="form-control" type="email" placeholder="Email">
+                        <input class="form-control" type="tel" placeholder="Teléfono">
+                        <input class="form-control" type="url" placeholder="URL">
+                        <input class="form-control" type="number" placeholder="Número entero">
+                        <input class="form-control" type="number" step=".01" min="0" max="100"
+                            placeholder="Número decimal">
+                        <input class="form-control" type="date">
+                        <input class="form-control" type="time">
+                        <input class="form-control" type="datetime-local">
+                        <input class="form-control" type="month">
+                        <input class="form-control" type="week">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Default checkbox
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Default radio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                                checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Default checked radio
+                            </label>
+                        </div>
+                        <select class="form-select">
                             <option value="1">Uno</option>
                             <option value="2">Dos</option>
                             <option value="3">Tres</option>
                         </select>
-                        <select multiple>
+                        <select class="form-select" multiple>
                             <option value="1">Uno</option>
                             <option value="2">Dos</option>
                             <option value="3">Tres</option>
                         </select>
-                        <textarea rows="4"></textarea>
-                        <input type="color">
-                        <input type="range" min="0" max="10" step="2">
-                        <input type="file" placeholder="Fichero">
+                        <textarea class="form-control" rows="4"></textarea>
+                        <input class="form-control" type="color">
+                        <input class="form-range" type="range" min="0" max="10" step="2">
+                        <input class="form-control" type="file" placeholder="Fichero">
 
-                        <input type="submit" value="Enviar">
-                        <input type="reset" value="Vaciar">
+                        <input class="btn btn-primary" type="submit" value="Enviar">
+                        <input class="btn btn-danger" type="reset" value="Vaciar">
 
                         <input type="hidden" name="escondido" value="valor">
 
-                        <button type="button">No envía</button>
-                        <button type="submit">Sí envía</button>
+                        <button class="btn btn-secondary" type="button">No envía</button>
+                        <button class="btn btn-primary" type="submit">Sí envía</button>
                     </fieldset>
                 </form>
             </section>
@@ -234,24 +281,24 @@ public class Hola {
 
     <aside>
         <!-- nav>ul>li*3>a>{Anuncio $} -->
-        <nav>
-            <ul>
-                <li><a href="#">Anuncio 1</a></li>
-                <li><a href="#">Anuncio 2</a></li>
-                <li><a href="#">Anuncio 3</a></li>
+        <nav class="bg-secondary-subtle">
+            <ul class="nav align-items-center flex-column flex-sm-row justify-content-around">
+                <li class="nav-item"><a class="nav-link" href="#">Anuncio 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Anuncio 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Anuncio 3</a></li>
             </ul>
         </nav>
     </aside>
 
-    <footer>
+    <footer class="p-2 text-bg-dark d-flex pb-5">
         <p>&copy;2024 Javier Lete</p>
-        <ul>
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+        <ul class="ms-auto list-unstyled d-flex">
+            <li><a class="text-light p-1" href="#"><i class="bi bi-facebook"></i></a></li>
+            <li><a class="text-light p-1" href="#"><i class="bi bi-twitter-x"></i></a></li>
+            <li><a class="text-light p-1" href="#"><i class="bi bi-instagram"></i></a></li>
+            <li><a class="text-light p-1" href="#"><i class="bi bi-youtube"></i></a></li>
         </ul>
-        <p><a id="arriba" href="#">Arriba</a></p>
+        <p><a class="position-fixed bottom-0 end-0 btn btn-primary m-3 shadow" id="arriba" href="#">Arriba</a></p>
     </footer>
 </body>
 
