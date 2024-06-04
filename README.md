@@ -46,3 +46,8 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 - Google Chrome Comic: https://www.google.com/googlebooks/chrome
 - Contra Chrome: https://contrachrome.com/comic/946/
 - Diapositivas HTML5: https://web.archive.org/web/20150531112824/http://slides.html5rocks.com/#landing-slide
+
+# JAVA
+
+- Ejercicios básicos: https://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
+
