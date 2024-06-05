@@ -50,4 +50,5 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 # JAVA
 
 - Ejercicios básicos: https://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
+- https://www.exercisesjava.com/es/
 
