@@ -5,11 +5,13 @@ import java.time.Period;
 import java.util.Objects;
 
 public class Persona {
+	// VARIABLES DE INSTANCIA
 	private Long id;
 	private String nombre;
 	private String apellidos;
 	private LocalDate fechaNacimiento;
 
+	// CONSTRUCTORES
 	public Persona(Long id, String nombre, String apellidos, LocalDate fechaNacimiento) {
 		setId(id);
 		setNombre(nombre);
@@ -29,6 +31,7 @@ public class Persona {
 		this(null, "ANÓNIMO", null, null);
 	}
 
+	// GETTERS Y SETTERS
 	public Long getId() {
 		return id;
 	}
@@ -73,6 +76,7 @@ public class Persona {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	// MÉTODOS DE INSTANCIA
 	public Integer getEdad() {
 		if (fechaNacimiento == null) {
 			// throw new RuntimeException("No tengo la fecha de nacimiento");
@@ -86,11 +90,13 @@ public class Persona {
 		return nombre + " " + apellidos;
 	}
 	
+	// HASHCODE
 	@Override
 	public int hashCode() {
 		return Objects.hash(apellidos, fechaNacimiento, id, nombre);
 	}
 
+	// EQUALS
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,6 +110,7 @@ public class Persona {
 				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
 
+	// TOSTRINGOTEPAD
 	@Override
 	public String toString() {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
