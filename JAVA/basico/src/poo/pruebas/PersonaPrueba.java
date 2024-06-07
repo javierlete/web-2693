@@ -40,5 +40,13 @@ public class PersonaPrueba {
 		
 		System.out.println(francisco == javier); // SON EL MISMO
 		System.out.println(francisco.equals(javier)); // SON GEMELOS
+		
+		Persona pa = new Persona();
+		Persona pb = new Persona(pa);
+		
+		pb.setId(5L);
+		
+		System.out.println(pa);
+		System.out.println(pb);
 	}
 }

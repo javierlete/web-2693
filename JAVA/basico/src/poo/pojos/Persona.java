@@ -19,6 +19,11 @@ public class Persona {
 		setFechaNacimiento(fechaNacimiento);
 	}
 
+	// Constructor de copia
+	public Persona(Persona persona) {
+		this(persona.getId(), persona.getNombre(), persona.getApellidos(), persona.getFechaNacimiento());
+	}
+
 	public Persona(String nombre, String apellidos, LocalDate fechaNacimiento) {
 		this(null, nombre, apellidos, fechaNacimiento);
 	}
@@ -89,7 +94,7 @@ public class Persona {
 	public String getNombreCompleto() {
 		return nombre + " " + apellidos;
 	}
-	
+
 	// HASHCODE
 	@Override
 	public int hashCode() {
@@ -110,11 +115,11 @@ public class Persona {
 				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre);
 	}
 
-	// TOSTRINGOTEPAD
+	// TOSTRING
 	@Override
 	public String toString() {
 		return "Persona [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
 				+ fechaNacimiento + "]";
 	}
-	
+
 }
