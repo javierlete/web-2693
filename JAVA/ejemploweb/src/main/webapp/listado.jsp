@@ -27,7 +27,7 @@
 					<th>${p.id}</th>
 					<td>${p.nombre}</td>
 					<td>${p.precio}</td>
-					<td><a href="#">Editar</a> <a href="borrar?id=${p.id}">Borrar</a></td>
+					<td><a href="formulario?id=${p.id}">Editar</a> <a href="borrar?id=${p.id}">Borrar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

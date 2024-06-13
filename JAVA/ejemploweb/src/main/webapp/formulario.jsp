@@ -9,9 +9,12 @@
 </head>
 <body>
 
+<pre>${producto}</pre>
+
 <form action="formulario" method="post">
-	<input name="nombre" placeholder="Nombre">
-	<input name="precio" placeholder="Precio">
+	<input type="hidden" name="id" value="${producto.id}">
+	<input name="nombre" placeholder="Nombre" value="${producto.nombre}">
+	<input name="precio" placeholder="Precio" value="${producto.precio}">
 	
 	<button>Guardar</button>
 </form>
