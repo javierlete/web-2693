@@ -1,6 +1,11 @@
 package com.ipartek.formacion.backend.controladores;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.ipartek.formacion.backend.modelos.Producto;
 
@@ -22,9 +27,23 @@ public class FormularioServlet extends HttpServlet {
 
 		if (sId != null) {
 			Long id = Long.parseLong(sId);
-			Producto producto = ListadoServlet.productos.get(id);
 
-			request.setAttribute("producto", producto);
+			try (Connection con = DriverManager.getConnection(
+					"jdbc:sqlite:C:\\Users\\html.IPARTEKAULA\\WEB\\JAVA\\ejemploweb\\sql\\ejemploweb.db");
+					PreparedStatement pst = con.prepareStatement("SELECT * FROM productos WHERE id=?");
+					) {
+				
+				pst.setLong(1, id);
+				ResultSet rs = pst.executeQuery();
+				
+				if (rs.next()) {
+					Producto producto = new Producto(rs.getLong("id"), rs.getString("nombre"), rs.getDouble("precio"));
+					request.setAttribute("producto", producto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		}
 
 		request.getRequestDispatcher("formulario.jsp").forward(request, response);
@@ -43,22 +62,38 @@ public class FormularioServlet extends HttpServlet {
 		Double precio = Double.parseDouble(sPrecio);
 
 		// 3. Empaquetar en modelo
-		Producto producto = new Producto(id, nombre, precio);
 
 		// 4. Ejecutar las acciones específicas
-		if (id == null) {
-			// INSERTAR
-			id = ListadoServlet.productos.size() > 0 ? ListadoServlet.productos.lastKey() + 1L : 1L;
-			producto.setId(id);
-		} 
 
-		ListadoServlet.productos.put(id, producto);
-		
+		try (Connection con = DriverManager
+				.getConnection("jdbc:sqlite:C:\\Users\\html.IPARTEKAULA\\WEB\\JAVA\\ejemploweb\\sql\\ejemploweb.db");
+				PreparedStatement pstInsert = con
+						.prepareStatement("INSERT INTO productos (nombre, precio) VALUES (?,?)");
+				PreparedStatement pstUpdate = con
+						.prepareStatement("UPDATE productos SET nombre=?, precio=? WHERE id=?")) {
+
+			if (id == null) {
+				// INSERTAR
+				pstInsert.setString(1, nombre);
+				pstInsert.setDouble(2, precio);
+
+				pstInsert.executeUpdate();
+			} else {
+				pstUpdate.setString(1, nombre);
+				pstUpdate.setDouble(2, precio);
+				pstUpdate.setLong(3, id);
+
+				pstUpdate.executeUpdate();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		// 5. Preparar los datos para la siguiente pantalla
-		request.setAttribute("productos", ListadoServlet.productos.values());
 
 		// 6. Saltar a la siguiente pantalla
-		request.getRequestDispatcher("listado.jsp").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/listado");
 	}
 
 }

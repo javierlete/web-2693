@@ -7,9 +7,9 @@ public class Producto {
 	private String nombre;
 	private Double precio;
 
-	public Producto(Long id, String nombre, Double precio) {
+	public Producto(Long i, String nombre, Double precio) {
 		super();
-		this.id = id;
+		this.id = i;
 		this.nombre = nombre;
 		this.precio = precio;
 	}

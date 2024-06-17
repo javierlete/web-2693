@@ -1,6 +1,10 @@
 package com.ipartek.formacion.backend.controladores;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,7 +23,13 @@ public class BorrarServlet extends HttpServlet {
 		
 		Long id = Long.parseLong(sId);
 		
-		ListadoServlet.productos.remove(id);
+		try (Connection con = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\html.IPARTEKAULA\\WEB\\JAVA\\ejemploweb\\sql\\ejemploweb.db");
+				PreparedStatement pst = con.prepareStatement("DELETE FROM productos WHERE id = ?")) {
+			pst.setLong(1, id);
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 		response.sendRedirect(request.getContextPath() + "/listado");
 	}
