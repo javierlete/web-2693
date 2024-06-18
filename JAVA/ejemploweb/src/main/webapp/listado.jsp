@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Listado de productos</title>
-</head>
-<body>
+<%@ include file="includes/cabecera.jsp"%>
 
+<main>
 	<pre>${productos}</pre>
 
 	<table border="1">
@@ -27,7 +21,8 @@
 					<th>${p.id}</th>
 					<td>${p.nombre}</td>
 					<td>${p.precio}</td>
-					<td><a href="formulario?id=${p.id}">Editar</a> <a href="borrar?id=${p.id}">Borrar</a></td>
+					<td><a href="formulario?id=${p.id}">Editar</a> <a
+						href="borrar?id=${p.id}">Borrar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -41,6 +36,6 @@
 		</tfoot>
 
 	</table>
+</main>
 
-</body>
-</html>
+<%@ include file="includes/pie.jsp"%>
