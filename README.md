@@ -49,6 +49,8 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 
 # JAVA
 
+- Tutorial sencillo de W3Schools: https://www.w3schools.com/java
 - Ejercicios básicos: https://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
 - https://www.exercisesjava.com/es/
+  
 
