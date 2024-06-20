@@ -1,7 +1,8 @@
-<%@page import="com.ipartek.formacion.biblioteca.modelos.Libro"%>
-<%@page import="java.util.ArrayList"%>
+<%@ page import="com.ipartek.formacion.biblioteca.modelos.Libro"%>
+<%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!doctype html>
 <html lang="es">
 
@@ -43,29 +44,21 @@
 	<main class="container">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 
-			<%
-			@SuppressWarnings("unchecked")
-			ArrayList<Libro> libros = (ArrayList<Libro>) request.getAttribute("libros");
-
-			for (var libro : libros) {
-			%>
-			<div class="col">
-				<div class="card h-100">
-					<img src="https://picsum.photos/400/300?<%=libro.getId()%>" class="card-img-top"
-						alt="...">
-					<div class="card-body">
-						<h5 class="card-title"><%=libro.getTitulo()%></h5>
-						<p class="card-text"><%=libro.getDescripcion()%></p>
-					</div>
-					<div class="card-footer">
-						<small class="text-body-secondary"><%=libro.getDisponible()%></small>
+			<c:forEach items="${libros}" var="libro">
+				<div class="col">
+					<div class="card h-100">
+						<img src="https://picsum.photos/400/300?${libro.id}"
+							class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">${libro.titulo}</h5>
+							<p class="card-text">${libro.descripcion}</p>
+						</div>
+						<div class="card-footer">
+							<small class="text-body-secondary">${libro.disponible}</small>
+						</div>
 					</div>
 				</div>
-			</div>
-
-			<%
-			}
-			%>
+			</c:forEach>
 
 		</div>
 	</main>
