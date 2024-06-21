@@ -4,7 +4,7 @@
 <%@ include file="includes/cabecera.jsp"%>
 
 <main class="container">
-	
+
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 
 		<c:forEach items="${libros}" var="libro">
@@ -17,7 +17,17 @@
 						<p class="card-text">${libro.descripcion}</p>
 					</div>
 					<div class="card-footer">
-						<small class="text-body-secondary">${libro.disponible ? 'Disponible': 'No disponible'}</small>
+						<div class="btn-group">
+							<input type="radio" class="btn-check" name="disponibilidad${libro.id}"
+								id="disponible${libro.id}" autocomplete="off" ${libro.disponible ? 'checked' : '' } disabled> <label
+								class="btn btn-outline-success" for="disponible${libro.id}">Disponible</label>
+
+							<input type="radio" class="btn-check" name="disponibilidad${libro.id}"
+								id="nodisponible${libro.id}" autocomplete="off" ${libro.disponible ? '' : 'checked' } disabled> <label
+								class="btn btn-outline-danger" for="nodisponible${libro.id}">No disponible</label>
+						</div>
+						
+						<a class="btn btn-primary" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
 					</div>
 				</div>
 			</div>
