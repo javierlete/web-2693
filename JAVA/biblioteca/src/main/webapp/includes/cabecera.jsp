@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!doctype html>
 <html lang="es">
 
@@ -36,14 +36,18 @@
 					<button class="btn btn-outline-success" type="submit">Buscar</button>
 				</form>
 				<ul class="navbar-nav mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" href="login">Login</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
-					</li>
-					<li class="navbar-text">${sessionScope.email}
-					</li>
+					<c:choose>
+						<c:when test="${sessionScope.email != null}">
+							<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
+							</li>
+							<li class="navbar-text">${sessionScope.email}</li>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link" href="login">Login</a>
+							</li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	

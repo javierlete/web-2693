@@ -4,23 +4,7 @@
 <%@ include file="includes/cabecera.jsp"%>
 
 <main class="container">
-	<c:if test="${sessionScope.email != null}">
-		<h2>Bienvenido ${sessionScope.email}</h2>
-	</c:if>
-
-	<c:choose>
-		<c:when test="${sessionScope.email != null}">
-			<h2>
-				Bienvenido ${sessionScope.email}. <a href="logout">Cerrar sesión</a>
-			</h2>
-		</c:when>
-		<c:otherwise>
-			<h2>
-				No estás logueado. Vete a <a href="login">iniciar sesión</a>
-			</h2>
-		</c:otherwise>
-	</c:choose>
-
+	
 	<div class="row row-cols-1 row-cols-md-3 g-4">
 
 		<c:forEach items="${libros}" var="libro">
