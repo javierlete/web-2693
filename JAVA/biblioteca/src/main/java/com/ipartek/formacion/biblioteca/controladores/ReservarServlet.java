@@ -20,7 +20,7 @@ public class ReservarServlet extends HttpServlet {
 		
 		Long id = Long.parseLong(sId);
 		
-		for(Libro libro : Biblioteca.libros) {
+		for(Libro libro : Biblioteca.obtenerTodos()) {
 			if(libro.getId() == id) {
 				libro.setDisponible(!libro.getDisponible());
 			}

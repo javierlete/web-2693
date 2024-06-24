@@ -16,7 +16,7 @@ public class IndexServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setAttribute("libros", Biblioteca.libros);
+		request.setAttribute("libros", Biblioteca.obtenerTodos());
 		
 		request.getRequestDispatcher("libros.jsp").forward(request, response);
 	}
