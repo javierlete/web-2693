@@ -53,4 +53,10 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 - Ejercicios básicos: https://puntocomnoesunlenguaje.blogspot.com/p/ejercicios.html
 - https://www.exercisesjava.com/es/
   
+# Bases de datos
 
+- SQL: https://www.w3schools.com/sql/
+- Estándar del 92: https://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt
+- Base de datos Northwind para MySQL: https://en.wikiversity.org/wiki/Database_Examples/Northwind/MySQL
+- NoSQL: https://es.wikipedia.org/wiki/NoSQL
+- 
