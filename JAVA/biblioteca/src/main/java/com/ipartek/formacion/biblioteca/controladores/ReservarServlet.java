@@ -3,7 +3,6 @@ package com.ipartek.formacion.biblioteca.controladores;
 import java.io.IOException;
 
 import com.ipartek.formacion.biblioteca.accesodatos.Biblioteca;
-import com.ipartek.formacion.biblioteca.modelos.Libro;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,11 +19,7 @@ public class ReservarServlet extends HttpServlet {
 		
 		Long id = Long.parseLong(sId);
 		
-		for(Libro libro : Biblioteca.obtenerTodos()) {
-			if(libro.getId() == id) {
-				libro.setDisponible(!libro.getDisponible());
-			}
-		}
+		Biblioteca.conmutarReserva(id);
 		
 		response.sendRedirect(request.getContextPath() + "/libros");
 	}
