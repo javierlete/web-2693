@@ -27,7 +27,9 @@
 								class="btn btn-outline-danger" for="nodisponible${libro.id}">No disponible</label>
 						</div>
 						
-						<a class="btn btn-primary" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
+						<%-- <c:if test="${sessionScope.email != null}"> --%>
+							<a class="btn btn-primary ${sessionScope.email == null ? 'disabled' : ''}" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
+						<%-- </c:if> --%>
 					</div>
 				</div>
 			</div>
