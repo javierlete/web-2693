@@ -8,13 +8,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ipartek.formacion.biblioteca.modelos.Libro;
+import com.ipartek.formacion.biblioteca.modelos.Usuario;
 
 public class Biblioteca {
 	private static final String URL = "jdbc:mysql://localhost/biblioteca";
 	private static final String USER = "root";
 	private static final String PASS = "1234";
 	
-	private static final String SQL_SELECT = "SELECT * FROM libros";
+	private static final String SQL_SELECT = """
+		SELECT 
+		    *
+		FROM
+		    libros l
+		LEFT JOIN 
+			usuarios u ON u.id = l.usuarios_id
+	""";
 	private static final String SQL_RESERVA = """
 		UPDATE libros 
 		SET 
@@ -40,9 +48,16 @@ public class Biblioteca {
 				ResultSet rs = pst.executeQuery()) {
 			
 			Libro libro;
+			Usuario usuario;
 			
 			while(rs.next()) {
-				libro = new Libro(rs.getLong("id"), rs.getString("titulo"), rs.getString("descripcion"), rs.getBoolean("disponible"), rs.getString("foto"));
+				libro = new Libro(rs.getLong("l.id"), rs.getString("l.titulo"), rs.getString("l.descripcion"), rs.getString("l.foto"));
+				
+				if(rs.getObject("u.id") != null) {
+					usuario = new Usuario(rs.getLong("u.id"), rs.getString("u.email"), rs.getString("u.password"), rs.getString("u.nombre"));
+					
+					libro.setUsuario(usuario);
+				}
 				
 				libros.add(libro);
 			}
