@@ -6,16 +6,16 @@ public class Libro {
 	private Long id;
 	private String titulo;
 	private String descripcion;
-	private Boolean disponible;
 	private String foto;
+	
+	private Usuario usuario;
 
 	// Source/Generate Constructor using Fields... (Generate)
-	public Libro(Long id, String titulo, String descripcion, Boolean disponible, String foto) {
+	public Libro(Long id, String titulo, String descripcion, String foto) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
-		this.disponible = disponible;
 		this.foto = foto;
 	}
 
@@ -45,11 +45,7 @@ public class Libro {
 	}
 
 	public Boolean getDisponible() {
-		return disponible;
-	}
-
-	public void setDisponible(Boolean disponible) {
-		this.disponible = disponible;
+		return usuario == null;
 	}
 
 	public String getFoto() {
@@ -60,10 +56,17 @@ public class Libro {
 		this.foto = foto;
 	}
 
-	// Source/Generate hashCode() and equals()... (Generate)
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(descripcion, disponible, foto, id, titulo);
+		return Objects.hash(descripcion, foto, id, titulo);
 	}
 
 	@Override
@@ -75,16 +78,14 @@ public class Libro {
 		if (getClass() != obj.getClass())
 			return false;
 		Libro other = (Libro) obj;
-		return Objects.equals(descripcion, other.descripcion) && Objects.equals(disponible, other.disponible)
-				&& Objects.equals(foto, other.foto) && Objects.equals(id, other.id)
-				&& Objects.equals(titulo, other.titulo);
+		return Objects.equals(descripcion, other.descripcion) && Objects.equals(foto, other.foto)
+				&& Objects.equals(id, other.id) && Objects.equals(titulo, other.titulo);
 	}
 
-	// Source/Generate toString()... (Generate)
 	@Override
 	public String toString() {
-		return "Libro [id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", disponible=" + disponible
-				+ ", foto=" + foto + "]";
+		return "Libro [id=" + id + ", titulo=" + titulo + ", descripcion=" + descripcion + ", foto=" + foto
+				+ ", usuario=" + usuario + "]";
 	}
 	
 }
