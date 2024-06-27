@@ -25,11 +25,14 @@
 							<input type="radio" class="btn-check" name="disponibilidad${libro.id}"
 								id="nodisponible${libro.id}" autocomplete="off" ${libro.disponible ? '' : 'checked' } disabled> <label
 								class="btn btn-outline-danger" for="nodisponible${libro.id}">No disponible</label>
+								
+      
 						</div>
 						
 						<%-- <c:if test="${sessionScope.email != null}"> --%>
 							<a class="btn btn-primary ${sessionScope.email == null ? 'disabled' : ''}" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
 						<%-- </c:if> --%>
+       					<small class="text-body-secondary">${libro.usuario.nombre}</small>
 					</div>
 				</div>
 			</div>
