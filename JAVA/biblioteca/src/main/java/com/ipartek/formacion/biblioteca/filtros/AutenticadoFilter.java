@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebFilter({"/perfil.jsp", "/usuarios/*", "/reservar"})
+@WebFilter({"/perfil", "/perfil.jsp", "/usuarios/*", "/reservar"})
 public class AutenticadoFilter extends HttpFilter implements Filter {
 
 	private static final long serialVersionUID = 7965695012864194678L;
