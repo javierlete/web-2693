@@ -37,6 +37,10 @@ public class Biblioteca {
 	private static final String SQL_RESERVA = """
 		UPDATE libros SET usuarios_id=? WHERE id=?;
 	""";
+
+	private static final String SQL_SELECT_PROPIETARIO = """
+		SELECT * FROM libros WHERE usuarios_id = ?
+	""";
 	
 	
 	
@@ -60,6 +64,31 @@ public class Biblioteca {
 					
 					libro.setUsuario(usuario);
 				}
+				
+				libros.add(libro);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return libros;
+	}
+	
+	public static ArrayList<Libro> obtenerLibrosPorPropietario(Long idPropietario) {
+		ArrayList<Libro> libros = new ArrayList<>();
+		
+		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
+				PreparedStatement pst = con.prepareStatement(SQL_SELECT_PROPIETARIO);
+				) {
+			pst.setLong(1, idPropietario);
+			
+			ResultSet rs = pst.executeQuery();
+			
+			Libro libro;
+			
+			while(rs.next()) {
+				libro = new Libro(rs.getLong("id"), rs.getString("titulo"), rs.getString("descripcion"), rs.getString("foto"));
 				
 				libros.add(libro);
 			}
