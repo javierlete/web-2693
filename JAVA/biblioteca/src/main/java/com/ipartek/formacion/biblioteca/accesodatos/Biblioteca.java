@@ -29,13 +29,16 @@ public class Biblioteca {
 		LEFT JOIN 
 			usuarios u ON u.id = l.usuarios_id
 	""";
-	private static final String SQL_RESERVA = """
-		UPDATE libros 
-		SET 
-		    disponible = NOT disponible
-		WHERE
-		    id = ?;
+	
+	private static final String SQL_PROPIETARIO = """
+		SELECT usuarios_id FROM libros WHERE id = ?;
 	""";
+	
+	private static final String SQL_RESERVA = """
+		UPDATE libros SET usuarios_id=? WHERE id=?;
+	""";
+	
+	
 	
 	// Cargamos el driver de MySQL cuando se pida la clase Biblioteca
 	
@@ -68,14 +71,36 @@ public class Biblioteca {
 		return libros;
 	}
 	
-	public static void conmutarReserva(Long id) {
+	public static void conmutarReserva(Long idLibro, Long idUsuario) {
 		
 		try (Connection con = DriverManager.getConnection(URL, USER, PASS);
-				PreparedStatement pst = con.prepareStatement(SQL_RESERVA);
 				) {
-			pst.setLong(1, id);
+			PreparedStatement pst = con.prepareStatement(SQL_PROPIETARIO);
+			pst.setLong(1, idLibro);
 			
-			pst.executeUpdate();
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()) {
+				long lIdPropietario = rs.getLong("usuarios_id");
+				Long idPropietario = lIdPropietario == 0 ? null: lIdPropietario;
+				
+				PreparedStatement pstConmutar = con.prepareStatement(SQL_RESERVA);
+				
+				pstConmutar.setLong(2, idLibro);
+				
+				if(idPropietario == null) {
+					// Está disponible
+					pstConmutar.setLong(1, idUsuario);
+					pstConmutar.executeUpdate();
+				} else {
+					// Lo tiene reservado idPropietario
+					if(idPropietario == idUsuario) {
+						pstConmutar.setObject(1, null);
+						pstConmutar.executeUpdate();
+					}
+				}
+				
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
