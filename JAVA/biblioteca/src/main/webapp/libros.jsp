@@ -29,8 +29,8 @@
       
 						</div>
 						
-						<%-- <c:if test="${sessionScope.email != null}"> --%>
-							<a class="btn btn-primary ${sessionScope.email == null ? 'disabled' : ''}" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
+						<%-- <c:if test="${sessionScope.usuario != null}"> --%>
+							<a class="btn btn-primary ${sessionScope.usuario == null ? 'disabled' : ''}" href="reservar?id=${libro.id}">${libro.disponible ? 'Reservar' : 'Devolver'}</a>
 						<%-- </c:if> --%>
        					<small class="text-body-secondary">${libro.usuario.nombre}</small>
 					</div>

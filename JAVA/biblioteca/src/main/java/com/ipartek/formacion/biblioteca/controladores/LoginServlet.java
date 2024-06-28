@@ -2,6 +2,9 @@ package com.ipartek.formacion.biblioteca.controladores;
 
 import java.io.IOException;
 
+import com.ipartek.formacion.biblioteca.accesodatos.BibliotecaUsuario;
+import com.ipartek.formacion.biblioteca.modelos.Usuario;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,9 +31,11 @@ public class LoginServlet extends HttpServlet {
 		
 //		Realiza las operaciones específicas que necesite
 		
-		if("javier@email.net".equals(email) && "contra".equals(password)) {
+		Usuario usuario = BibliotecaUsuario.obtenerPorEmail(email);
+				
+		if(usuario != null && usuario.getPassword().equals(password)) {
 			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
+			session.setAttribute("usuario", usuario);
 			
 //			Lanza la siguiente vista
 			response.sendRedirect(request.getContextPath() + "/libros");

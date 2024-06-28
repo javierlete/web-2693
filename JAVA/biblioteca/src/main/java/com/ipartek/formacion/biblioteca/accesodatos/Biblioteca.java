@@ -10,10 +10,16 @@ import java.util.ArrayList;
 import com.ipartek.formacion.biblioteca.modelos.Libro;
 import com.ipartek.formacion.biblioteca.modelos.Usuario;
 
+import static com.ipartek.formacion.biblioteca.accesodatos.Constantes.*;
+
 public class Biblioteca {
-	private static final String URL = "jdbc:mysql://localhost/biblioteca";
-	private static final String USER = "root";
-	private static final String PASS = "1234";
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	private static final String SQL_SELECT = """
 		SELECT 
@@ -32,13 +38,6 @@ public class Biblioteca {
 	""";
 	
 	// Cargamos el driver de MySQL cuando se pida la clase Biblioteca
-	static {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public static ArrayList<Libro> obtenerTodos() {
 		ArrayList<Libro> libros = new ArrayList<>();

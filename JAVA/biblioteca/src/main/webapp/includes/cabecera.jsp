@@ -37,10 +37,10 @@
 				</form>
 				<ul class="navbar-nav mb-2 mb-lg-0">
 					<c:choose>
-						<c:when test="${sessionScope.email != null}">
+						<c:when test="${sessionScope.usuario != null}">
 							<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 							</li>
-							<li class="navbar-text">${sessionScope.email}</li>
+							<li class="navbar-text">${sessionScope.usuario.nombre}</li>
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="login">Login</a>
