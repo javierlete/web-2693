@@ -2,6 +2,8 @@ package com.ipartek.formacion.biblioteca.filtros;
 
 import java.io.IOException;
 
+import com.ipartek.formacion.biblioteca.modelos.Usuario;
+
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -23,9 +25,9 @@ public class AutenticadoFilter extends HttpFilter implements Filter {
 		HttpServletResponse res = (HttpServletResponse)response;
 		
 		HttpSession session = req.getSession();
-		String email = (String) session.getAttribute("email");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		
-		if(email == null) {
+		if(usuario == null) {
 			// No está logueado
 			// Le rebotamos a la página de login
 			res.sendRedirect(req.getContextPath() + "/login");
