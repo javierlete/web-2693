@@ -40,7 +40,8 @@
 						<c:when test="${sessionScope.usuario != null}">
 							<li class="nav-item"><a class="nav-link" href="logout">Logout</a>
 							</li>
-							<li class="navbar-text">${sessionScope.usuario.nombre}</li>
+							<li class="nav-item"><a class="nav-link" href="perfil">${sessionScope.usuario.nombre}</a>
+							</li>
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="login">Login</a>
