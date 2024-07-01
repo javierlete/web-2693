@@ -59,4 +59,8 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 - Estándar del 92: https://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt
 - Base de datos Northwind para MySQL: https://en.wikiversity.org/wiki/Database_Examples/Northwind/MySQL
 - NoSQL: https://es.wikipedia.org/wiki/NoSQL
-- 
+
+# PowerBI
+
+- Tutorial básico de PowerBI: https://learn.microsoft.com/es-es/power-bi/create-reports/desktop-excel-stunning-report
+
