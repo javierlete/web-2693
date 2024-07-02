@@ -63,4 +63,5 @@ Ciego explicando como usa las tecnologías: https://www.youtube.com/watch?v=Iw4v
 # PowerBI
 
 - Tutorial básico de PowerBI: https://learn.microsoft.com/es-es/power-bi/create-reports/desktop-excel-stunning-report
+- Tutorial con fuentes OData: https://learn.microsoft.com/es-es/power-bi/connect-data/desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed
 
