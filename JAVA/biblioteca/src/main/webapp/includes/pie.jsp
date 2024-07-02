@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://sargue.net/jsptags/time" prefix="javatime" %>
 <footer class="bg-body-tertiary p-2">
-	<p>&copy;2024 Javier Lete</p>
+	<% pageContext.setAttribute("ahora", java.time.LocalDateTime.now()); %>
+	<p>&copy;<javatime:format value="${ahora}" pattern="yyyy"/> Javier Lete</p>
 </footer>
 
 <script
